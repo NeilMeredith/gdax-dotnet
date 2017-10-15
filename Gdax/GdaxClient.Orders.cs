@@ -98,6 +98,15 @@ namespace Gdax
 			return new PagedResults<Order, DateTime?>(response, CursorEncoders.DateTime, paging);
 		}
 
+		public async Task<Order> GetOrder(String orderId)
+		{
+			var request = new GdaxRequestBuilder($"/orders/{orderId}", HttpMethod.Get)
+				.Build();
+
+			return (await this.GetResponse<Order>(request).ConfigureAwait(false)).Value;
+		}
+
+
 		public async Task CancelOrder(String orderId)
 		{
 			var request = new GdaxRequestBuilder($"/orders/{orderId}", HttpMethod.Delete)

@@ -20,6 +20,9 @@ namespace Gdax.Models
 		[JsonProperty("created_at")]
 		public DateTime CreatedAt { get; set; }
 
+		[JsonProperty("done_at")]
+		public DateTime DoneAt { get; set; }
+
 		[JsonProperty("fill_fees")]
 		public Decimal FillFees { get; set; }
 
